@@ -85,7 +85,7 @@ var compass = [{
     sprite: new Sprite('img/compass.png', [0, 0], [300, 300], 16, [0],180)
 }];
 var stats = JSON.parse(localStorage.getItem('stats'));
-if(stats.selected<10){
+if(stats.selected==20){
 var holes = [{
 	object_type:"env",
     pos: [5000, 1000],
