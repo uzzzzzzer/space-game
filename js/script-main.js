@@ -48,6 +48,7 @@ updateProgress();
 function go(stage){
 	if(stage<=stats.passed+1){
 	stats.selected=stage;
+	stats.diff = this.value;
 	localStorage.setItem('stats', JSON.stringify(stats));
 	window.location.replace("index.html");
 	}
