@@ -576,7 +576,7 @@ function checkPlayerBounds() {
 function render() {
     if(!isGameOver){
 
-    var ctx = document.getElementById('canvas').getContext('2d');
+    var ctx = canvas.getContext('2d');
     ctx.font = '48px serif';
     ctx.fillStyle = "red";
     ctx.fillText(Math.ceil(time), ctx.width/2-50, 100);
