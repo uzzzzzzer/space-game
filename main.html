@@ -143,6 +143,7 @@
 		var stats = JSON.parse(localStorage.getItem('stats'));
 		stats.diff = slider.value;
 		localStorage.setItem('stats', JSON.stringify(stats));
+		location.replace("main.html")
 	}
 	
 
