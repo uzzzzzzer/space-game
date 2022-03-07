@@ -120,6 +120,7 @@ var spawned=0;
 var lastBullet = Date.now();
 var vfx=[];
 var stats = JSON.parse(localStorage.getItem('stats'));
+var time=180/stats.diff;
 var compositions=["tt","ff","d","fttf","ddd","tttttttttt","ftftf","ffffffffff","dttd","dfdfd","ttttttttttttttt","g","fdgdf","ttttttfgft","ggggg","tgtgt","gdg","fgfgf","ttdttgg","fffffdddddfffff"];
 var sp=compositions[stats.selected-1];
 var to_spawn=sp.length;
