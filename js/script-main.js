@@ -53,7 +53,8 @@ function go(stage){
 	
 }
 //----------------------------------------
-var xp=1204;
+var stats = JSON.parse(localStorage.getItem('stats'));
+var xp=stats.xp;
 var next_lv_increment = 2;
 var first_level = 1;
 function Log(x, y) {
