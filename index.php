@@ -1,1 +1,1 @@
-<?php include_once("blocked.html"); ?> 
+<?php include_once("main.html"); ?> 
