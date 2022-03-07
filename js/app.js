@@ -124,7 +124,7 @@ var compositions=["tt","ff","d","fttf","ddd","tttttttttt","ftftf","ffffffffff","
 var sp=compositions[stats.selected-1];
 var time = 30;
 for(var i=0;i<sp.length;i++){
-	time+={"t":5,"f":5,"d":10,"g":5}[sp[i]];
+	time+={"t":20,"f":15,"d":30,"g":15}[sp[i]];
 }
 time=time/stats.diff;
 var to_spawn=sp.length;
