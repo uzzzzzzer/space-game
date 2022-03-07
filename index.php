@@ -1,1 +1,1 @@
-<?php include_once("star destroyer/main.html"); ?> 
+<?php include_once("main.html"); ?> 
