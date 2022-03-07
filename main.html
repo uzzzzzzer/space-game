@@ -122,7 +122,6 @@
 	<div class="slidecontainer">
 	  <input type="range" min="1" max="6" value="3" class="slider" id="myRange">
 	  <p style="color:white"><span id="demo" style="color:white"></span></p>
-		<button onclick="apply()">Apply</button>
 	</div>
 
 	<script>
@@ -136,8 +135,6 @@
 	stats.diff = this.value;
 	localStorage.setItem('stats', JSON.stringify(stats));
 	  output.innerHTML = difficulty[this.value-1];
-	var stats = JSON.parse(localStorage.getItem('stats'));
-	localStorage.setItem('stats', JSON.stringify(stats));
 	}
 	function apply(){
 		var stats = JSON.parse(localStorage.getItem('stats'));
