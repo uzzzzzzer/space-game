@@ -46,6 +46,7 @@ const updateProgress = () => {
 };
 updateProgress();
 function go(stage){
+	var slider = document.getElementById("myRange");
 	if(stage<=stats.passed+1){
 	stats.selected=stage;
 	stats.diff = this.value;
