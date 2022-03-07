@@ -49,7 +49,7 @@ function go(stage){
 	var slider = document.getElementById("myRange");
 	if(stage<=stats.passed+1){
 	stats.selected=stage;
-	stats.diff = this.value;
+	stats.diff = slider.value;
 	localStorage.setItem('stats', JSON.stringify(stats));
 	window.location.replace("index.html");
 	}
