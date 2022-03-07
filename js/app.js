@@ -500,6 +500,7 @@ function checkCollisions() {
 				bullets.splice(j, 1);
 				if(enemies[i].health<1){
 		xp+=enemies[i].xp_bonus;
+		stats.xp=Math.max(stats.xp+enemies[i].xp_bonus,0);
                 // Remove the enemy
                 enemies.splice(i, 1);
                 i--;
@@ -640,7 +641,7 @@ function gameWin() {
     document.getElementById('game-win-overlay').style.display = 'block';
     isGameOver = true;
 	stats.passed=Math.max(stats.selected,stats.passed);
-	stats.xp=Math.max(stats.xp+xp,0);
+	
 	localStorage.setItem('stats', JSON.stringify(stats));
 }
 
