@@ -38,7 +38,7 @@ function init() {
     terrainPattern = ctx.createPattern(resources.get('img/terrain.png'), 'repeat');
 
     document.getElementById('play-again').addEventListener('click', function() {
-        reset();
+        menu();
     });
 	document.getElementById('to-menu').addEventListener('click', function() {
         menu();
