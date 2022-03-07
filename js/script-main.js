@@ -77,6 +77,7 @@ function prog() {
   var id = setInterval(frame, 1);
   function frame() {
     if (fill < xp)  {
+      console.log(fill);
       fill+=xp/250;
       fill=Math.round(fill);
       elem.style.width = fill/need*100 + '%'; 
