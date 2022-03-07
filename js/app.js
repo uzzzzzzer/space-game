@@ -124,9 +124,8 @@ var compositions=["tt","ff","d","fttf","ddd","tttttttttt","ftftf","ffffffffff","
 var sp=compositions[stats.selected-1];
 var time = 30;
 for(var i=0;i<sp.length;i++){
-	time+={"t":20,"f":15,"d":30,"g":15}[sp[i]];
+	time+={"t":20,"f":15,"d":30,"g":15}[sp[i]]/stats.diff;
 }
-time=time/stats.diff;
 var to_spawn=sp.length;
 var config = {max_speed:[2,2,3,3,3,3,4,4,4,4,5,5],
       damage:[1,1,1,1.2,1.2,1.2,1.3,1.3,1.4,1.5,1.6,2],
