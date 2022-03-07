@@ -14,7 +14,7 @@
 		  reset_stats();
 	  }
 	  function reset_stats(){
-		var stats = { 'xp': 0, 'passed': 0, 'energy': 0,"selected":1,"stages":20};
+		var stats = { 'diff': 1,'xp': 0, 'passed': 0, 'energy': 0,"selected":1,"stages":20};
 		localStorage.setItem('stats', JSON.stringify(stats));
 		var stats = JSON.parse(localStorage.getItem('stats'));
 		console.log('stats: ', stats);
