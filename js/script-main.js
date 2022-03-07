@@ -93,9 +93,9 @@ var dct={max_speed:[2,2,3,3,3,3,4,4,4,4,5,5],
       health:[5,5,5,5,6,6,6,6,7,7,8,8]};
 var lv = get_level(xp);
 const dmg = document.getElementById("damage");
-const hlth = document.getElementById("damage");
-const spd = document.getElementById("damage");
+const hlth = document.getElementById("health");
+const spd = document.getElementById("speed");
 
 dmg.innerHTML = "Damage:"+dct.damage[lv]*10;
 hlth.innerHTML = "Health:"+dct.health[lv]*10;
-spd.innerHTML = "Speed:"+dct.speed[lv]*10;
+spd.innerHTML = "Speed:"+dct.max_speed[lv]*10;
