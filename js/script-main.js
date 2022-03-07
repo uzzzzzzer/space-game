@@ -1,6 +1,7 @@
 const progressBars = document.querySelectorAll("#progress-bar");
 const progressNext = document.getElementById("progress-next");
 const progressPrev = document.getElementById("progress-prev");
+
 const steps = document.querySelectorAll(".step");
 var stats = JSON.parse(localStorage.getItem('stats'));
 let active = Math.min(stats.stages,stats.passed);
@@ -87,3 +88,14 @@ function prog() {
     }
   }
 }
+var dct={max_speed:[2,2,3,3,3,3,4,4,4,4,5,5],
+      damage:[1,1,1,1.2,1.2,1.2,1.3,1.3,1.4,1.5,1.6,2],
+      health:[5,5,5,5,6,6,6,6,7,7,8,8]};
+var lv = get_level(xp);
+const dmg = document.getElementById("damage");
+const hlth = document.getElementById("damage");
+const spd = document.getElementById("damage");
+
+dmg.innerHTML = "Damage:"+dct.damage[lv]*10;
+hlth.innerHTML = "Health:"+dct.health[lv]*10;
+spd.innerHTML = "Speed:"+dct.speed[lv]*10;
