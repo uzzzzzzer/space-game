@@ -577,9 +577,7 @@ function render() {
     if(!isGameOver){
 
     var ctx = canvas.getContext('2d');
-    ctx.font = '48px serif';
-    ctx.fillStyle = "red";
-    ctx.fillText(Math.ceil(time), ctx.width/2-50, 100);
+
     ctx.fillStyle = terrainPattern;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 	//renderEntities(terrain);
@@ -596,6 +594,9 @@ function render() {
 	renderEntities(holes);
 	renderEntities(compass);
 	renderEntities(compass_markers);
+    ctx.font = '48px serif';
+    ctx.fillStyle = "red";
+    ctx.fillText(Math.ceil(time), ctx.width/2-50, 100);
     }
 };
 
