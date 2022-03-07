@@ -50,7 +50,7 @@ function go(stage){
 	if(stage<=stats.passed+1){
 	stats.selected=stage;
 	stats.diff = slider.value;
-		alert(stats.diff);
+	//	alert(stats.diff);
 	localStorage.setItem('stats', JSON.stringify(stats));
 	window.location.replace("index.html");
 	}
