@@ -46,23 +46,7 @@
 </style>
   </head>
   <body>
-	<h1 style="color:white">Difficulty</h1>
-
-	<div class="slidecontainer">
-	  <input type="range" min="1" max="6" value="3" class="slider" id="myRange">
-	  <p><span id="demo"></span></p>
-	</div>
-
-	<script>
-	var difficulty = ["Very easy","Easy","Normal","Hard","Very hard","Impossible"]
-	var slider = document.getElementById("myRange");
-	var output = document.getElementById("demo");
-	output.innerHTML = difficulty[slider.value-1];
-
-	slider.oninput = function() {
-	  output.innerHTML = difficulty[this.value-1];
-	}
-	</script>
+	
 
 	  <script scr="js/const.js"></script>
 	  <script>
@@ -135,5 +119,22 @@
     <button id="progress-next" class="btn" hidden>Next</button>
     <script src="js/script-main.js"></script>
     <script>prog()</script>
+<h1 style="color:white">Difficulty</h1>
+
+	<div class="slidecontainer">
+	  <input type="range" min="1" max="6" value="3" class="slider" id="myRange">
+	  <p style="color:white"><span id="demo" style="color:white"></span></p>
+	</div>
+
+	<script>
+	var difficulty = ["Very easy","Easy","Normal","Hard","Very hard","Impossible"]
+	var slider = document.getElementById("myRange");
+	var output = document.getElementById("demo");
+	output.innerHTML = difficulty[slider.value-1];
+
+	slider.oninput = function() {
+	  output.innerHTML = difficulty[this.value-1];
+	}
+	</script>
   </body>
 </html>
