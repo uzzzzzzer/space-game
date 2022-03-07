@@ -96,6 +96,7 @@ const dmg = document.getElementById("damage");
 const hlth = document.getElementById("health");
 const spd = document.getElementById("speed");
 
+console.log("level:"+lv);
 dmg.innerHTML = "Damage:"+dct.damage[lv]*10;
 hlth.innerHTML = "Health:"+dct.health[lv]*10;
 spd.innerHTML = "Speed:"+dct.max_speed[lv]*10;
