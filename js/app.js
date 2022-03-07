@@ -510,7 +510,7 @@ function checkCollisions() {
 				enemies[i].health-=1*config.damage[lv];
 				}
 				bullets.splice(j, 1);
-				if(enemies[i].health<1){
+				if(enemies[i].health<=0){
 		xp+=enemies[i].xp_bonus;
 		stats.xp=Math.max(stats.xp+enemies[i].xp_bonus,0);
                 // Remove the enemy
