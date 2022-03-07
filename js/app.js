@@ -100,7 +100,7 @@ var compass_markers = [];
 var bullets = [];
 var enemies = [];
 var explosions = [];
-
+var xp = 0;
 var lastFire = Date.now();
 var lastChange = Date.now();
 var gameTime = 0;
@@ -190,6 +190,7 @@ function update(dt) {
     if(sp[spawned]=="t" && enemies.length+score/100<to_spawn) {
 		spawned+=1;
         enemies.push({
+			xp_bonus:1,
 			rotation:30,
 			speed:100,
 			health:2,
@@ -208,6 +209,7 @@ function update(dt) {
 	else if(sp[spawned]=="f" && enemies.length+score/100<to_spawn) {
 		spawned+=1;
         enemies.push({
+			xp_bonus:2,
 			rotation:180,
 			speed:250,
 			health:1,
@@ -226,6 +228,7 @@ function update(dt) {
 	else if(sp[spawned]=="d" && enemies.length+score/100<to_spawn) {
 		spawned+=1;
         enemies.push({
+			xp_bonus:5,
 			rotation:15,
 			speed:100,
 			damage_chance:1,
@@ -244,6 +247,7 @@ function update(dt) {
 	else if(sp[spawned]=="g" && enemies.length+score/100<to_spawn) {
 		spawned+=1;
         enemies.push({
+			xp_bonus:2,
 			rotation:60,
 			speed:100,
 			health:1,
@@ -262,6 +266,7 @@ function update(dt) {
 	else if(sp[spawned]=="s" && enemies.length+score/100<to_spawn) {
 		spawned+=1;
         enemies.push({
+			xp_bonus:100,
 			rotation:60,
 			speed:10,
 			health:50,
@@ -494,6 +499,7 @@ function checkCollisions() {
 				}
 				bullets.splice(j, 1);
 				if(enemies[i].health<1){
+		xp+=enemies[i].xp_bonus;
                 // Remove the enemy
                 enemies.splice(i, 1);
                 i--;
@@ -634,6 +640,7 @@ function gameWin() {
     document.getElementById('game-win-overlay').style.display = 'block';
     isGameOver = true;
 	stats.passed=Math.max(stats.selected,stats.passed);
+	stats.xp=Math.max(stats.xp+xp,0);
 	localStorage.setItem('stats', JSON.stringify(stats));
 }
 
