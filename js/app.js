@@ -349,6 +349,7 @@ function handleInput(dt) {
 }
 
 function updateEntities(dt) {
+	time-=dt/1000;
 	for(var i=0; i<holes.length; i++) {
 		var f=holes[i].force/Math.max(100,get_d(player,holes[i]));
 		var dx=f*m(get_dist(player,holes[i])[0]/10000);
@@ -537,7 +538,10 @@ function checkCollisions() {
 				}
             }
         }
-
+	if(time<0){
+                gameOver();
+                break;
+	}
         if(boxCollides(pos, size, player.pos, player.sprite.size)) {
 				player.health--;
 				if(player.health<1){
