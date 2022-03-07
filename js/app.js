@@ -596,7 +596,7 @@ function render() {
 	renderEntities(compass_markers);
     ctx.font = '48px serif';
     ctx.fillStyle = "red";
-    ctx.fillText(Math.ceil(time), ctx.width/2-50, 100);
+    ctx.fillText(Math.ceil(time), canvas.width/2-50, 100);
     }
 };
 
