@@ -127,7 +127,7 @@ var config = {max_speed:[2,2,3,3,3,3,4,4,4,4,5,5],
       damage:[1,1,1,1.2,1.2,1.2,1.3,1.3,1.4,1.5,1.6,2],
       health:[5,5,5,5,6,6,6,6,7,7,8,8]};
 function Log(x, y) {
-  return Math.log(y) / Math.log(x);
+  return Math.max(0,Math.log(y) / Math.log(x));
 }
 
 function get_level(xp){
