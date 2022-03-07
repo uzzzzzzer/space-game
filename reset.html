@@ -7,7 +7,7 @@
 <button onclick="reset_stats()" style="border: 3px solid darkblue;padding: 12px;background-color:lightblue;border-radius: 5px;">Reset stats</button>
 <script>
 function reset_stats(){
-var stats = { 'xp': 0, 'passed': 0, 'energy': 0,"selected":1,"stages":20};
+var stats = { 'diff': 1,'xp': 0, 'passed': 0, 'energy': 0,"selected":1,"stages":20};
 localStorage.setItem('stats', JSON.stringify(stats));
 var stats = JSON.parse(localStorage.getItem('stats'));
 console.log('stats: ', stats);
