@@ -137,6 +137,8 @@
 	stats.diff = this.value;
 	localStorage.setItem('stats', JSON.stringify(stats));
 	  output.innerHTML = difficulty[this.value-1];
+	var stats = JSON.parse(localStorage.getItem('stats'));
+	localStorage.setItem('stats', JSON.stringify(stats));
 	}
 	
 
