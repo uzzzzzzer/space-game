@@ -574,9 +574,8 @@ function checkPlayerBounds() {
 
 // Draw everything
 function render() {
-    if(isGameOver){
-	    continue;
-    }
+    if(!isGameOver){
+
     var ctx = document.getElementById('canvas').getContext('2d');
     ctx.font = '48px serif';
     ctx.fillStyle = "red";
@@ -597,6 +596,7 @@ function render() {
 	renderEntities(holes);
 	renderEntities(compass);
 	renderEntities(compass_markers);
+    }
 };
 
 function render_player_params(){
