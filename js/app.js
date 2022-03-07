@@ -352,6 +352,7 @@ function handleInput(dt) {
 function updateEntities(dt) {
 	console.log(time);
 	time-=dt;
+	
 	for(var i=0; i<holes.length; i++) {
 		var f=holes[i].force/Math.max(100,get_d(player,holes[i]));
 		var dx=f*m(get_dist(player,holes[i])[0]/10000);
@@ -573,6 +574,13 @@ function checkPlayerBounds() {
 
 // Draw everything
 function render() {
+    if(isGameOver){
+	    continue;
+    }
+    var ctx = document.getElementById('canvas').getContext('2d');
+    ctx.font = '48px serif';
+    ctx.fillStyle = "red";
+    ctx.fillText(Math.ceil(time), ctx.width/2-50, 100);
     ctx.fillStyle = terrainPattern;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 	//renderEntities(terrain);
