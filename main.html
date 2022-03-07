@@ -117,13 +117,12 @@
     </div>
 	<button id="progress-prev" class="btn" disabled hidden>Prev</button>
     <button id="progress-next" class="btn" hidden>Next</button>
-    <script src="js/script-main.js"></script>
-    <script>prog()</script>
+    
 <h1 style="color:white">Difficulty</h1>
-
 	<div class="slidecontainer">
 	  <input type="range" min="1" max="6" value="3" class="slider" id="myRange">
 	  <p style="color:white"><span id="demo" style="color:white"></span></p>
+		<button onclick="apply()">Apply</button>
 	</div>
 
 	<script>
@@ -140,8 +139,15 @@
 	var stats = JSON.parse(localStorage.getItem('stats'));
 	localStorage.setItem('stats', JSON.stringify(stats));
 	}
+	function apply(){
+		var stats = JSON.parse(localStorage.getItem('stats'));
+		stats.diff = slider.value;
+		localStorage.setItem('stats', JSON.stringify(stats));
+	}
 	
 
 	</script>
+    <script src="js/script-main.js"></script>
+    <script>prog()</script>
   </body>
 </html>
