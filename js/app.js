@@ -123,6 +123,18 @@ var stats = JSON.parse(localStorage.getItem('stats'));
 var compositions=["tt","ff","d","fttf","ddd","tttttttttt","ftftf","ffffffffff","dttd","dfdfd","ttttttttttttttt","g","fdgdf","ttttttfgft","ggggg","tgtgt","gdg","fgfgf","ttdttgg","fffffdddddfffff"];
 var sp=compositions[stats.selected-1];
 var to_spawn=sp.length;
+var config = {max_speed:[2,2,3,3,3,3,4,4,4,4,5,5],
+      damage:[1,1,1,1.2,1.2,1.2,1.3,1.3,1.4,1.5,1.6,2],
+      health:[5,5,5,5,6,6,6,6,7,7,8,8]};
+function Log(x, y) {
+  return Math.log(y) / Math.log(x);
+}
+
+function get_level(xp){
+  var lv = Math.floor(Log(next_lv_increment,xp/first_level));
+  return lv;
+}
+var lv = get_level(stats.xp);
 // Update game objects
 function get_pos(obj){
 	return [obj.pos[0]+obj.sprite.size[0]/2,obj.pos[1]+obj.sprite.size[1]/2];
@@ -291,12 +303,12 @@ function handleInput(dt) {
 	var degrees=player.sprite.degrees;
     if((input.isDown('b'))&& Date.now()-lastChange>100) {
 		lastChange = Date.now();
-		on=Math.min(5,on+3);
+		on=Math.min(config.max_speed[lv],on+3);
 
     }
     if((input.isDown('UP') || input.isDown('w'))&& Date.now()-lastChange>100) {
 		lastChange = Date.now();
-		on=Math.min(5,on+0.1);
+		on=Math.min(config.max_speed[lv],on+0.1);
 
     }
     if(input.isDown('DOWN') || input.isDown('s')&& Date.now()-lastChange>100) {
@@ -495,7 +507,7 @@ function checkCollisions() {
 
             if(boxCollides(pos, size, pos2, size2)&& bullets[j].type=="simple") {
 				if(enemies[i].damage_chance>Math.random()){
-				enemies[i].health-=1;
+				enemies[i].health-=1*config.damage[lv];
 				}
 				bullets.splice(j, 1);
 				if(enemies[i].health<1){
@@ -658,8 +670,8 @@ function reset() {
     bullets = [];
 
 	var player = {
-		health:5,
-		mhealth:5,
+		health:config.health[lv],
+		mhealth:config.health[lv],
 		object_type:"unit",
 	    pos: [0, 0],
 	    sprite: new Sprite('img/player_1.png', [0, 0], [122, 100], 16, [0],180)
