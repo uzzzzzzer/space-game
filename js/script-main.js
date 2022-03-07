@@ -52,3 +52,36 @@ function go(stage){
 	}
 	
 }
+//----------------------------------------
+var xp=1204;
+var next_lv_increment = 2;
+var first_level = 1;
+function Log(x, y) {
+  return Math.log(y) / Math.log(x);
+}
+
+function get_level(xp){
+  var lv = Math.floor(Log(next_lv_increment,xp/first_level));
+  return lv;
+}
+
+function get_xp(lv){
+	return Math.pow(next_lv_increment,lv)*first_level;
+}
+function prog() {
+  var lv = get_level(xp);
+  var need = get_xp(lv+1);
+  var elem = document.getElementById("progress");   
+  var fill = 0;
+  var id = setInterval(frame, 1);
+  function frame() {
+    if (fill < xp)  {
+      fill+=xp/250;
+      fill=Math.round(fill);
+      elem.style.width = fill/need*100 + '%'; 
+
+      document.getElementById("xp").innerHTML = fill+"/"+need+" XP of "+(lv+1) + " level";
+      document.getElementById("lv").innerHTML = lv+" level";
+    }
+  }
+}
