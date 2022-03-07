@@ -78,7 +78,7 @@ function prog() {
   function frame() {
     if (fill < xp)  {
       console.log(fill);
-      fill+=xp/250;
+      fill+=xp;
       fill=Math.round(fill);
       elem.style.width = fill/need*100 + '%'; 
 
