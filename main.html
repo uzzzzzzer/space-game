@@ -133,8 +133,13 @@
 	output.innerHTML = difficulty[slider.value-1];
 
 	slider.oninput = function() {
+	var stats = JSON.parse(localStorage.getItem('stats'));
+	stats.diff = this.value;
+	localStorage.setItem('stats', JSON.stringify(stats));
 	  output.innerHTML = difficulty[this.value-1];
 	}
+	
+
 	</script>
   </body>
 </html>
