@@ -351,7 +351,7 @@ function handleInput(dt) {
 
 function updateEntities(dt) {
 	console.log(time);
-	time-=dt/1000;
+	time-=dt;
 	for(var i=0; i<holes.length; i++) {
 		var f=holes[i].force/Math.max(100,get_d(player,holes[i]));
 		var dx=f*m(get_dist(player,holes[i])[0]/10000);
