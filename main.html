@@ -5,147 +5,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>main</title>
     <link rel="stylesheet" href="css/style-main.css" />
-<style>
-.slidecontainer {
-  width: 100%;
-}
+    <style>
+      .slidecontainer {
+        width: 100%;
+      }
 
-.slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 15px;
-  border-radius: 5px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
+      .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 15px;
+        border-radius: 5px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+      }
 
-.slider:hover {
-  opacity: 1;
-}
+      .slider:hover {
+        opacity: 1;
+      }
 
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #04AA6D;
-  cursor: pointer;
-}
+      .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #04AA6D;
+        cursor: pointer;
+      }
 
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #04AA6D;
-  cursor: pointer;
-}
-</style>
+      .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #04AA6D;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
-	
+    <script scr="js/const.js"></script>
+    <script>
+      var stats = JSON.parse(localStorage.getItem('stats'));
+      if (stats == null) {
+        reset_stats();
+      }
 
-	  <script scr="js/const.js"></script>
-	  <script>
-	  var stats = JSON.parse(localStorage.getItem('stats'));
-	  if(stats==null){
-		  reset_stats();
-	  }
-	  function reset_stats(){
-		var stats = { 'diff': 1,'xp': 0, 'passed': 0, 'energy': 0,"selected":1,"stages":20};
-		localStorage.setItem('stats', JSON.stringify(stats));
-		var stats = JSON.parse(localStorage.getItem('stats'));
-		console.log('stats: ', stats);
-		}
-	  </script>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<div class="w3-container">
-  <h1 id="lv" style="color:white">1 level</h1>
-
-  <div class="w3-light-grey">
-    <div id="progress" class="w3-container w3-green" style="height:24px;width:50%">
+      function reset_stats() {
+        var stats = {
+          'diff': 1,
+          'xp': 0,
+          'passed': 0,
+          'energy': 0,
+          "selected": 1,
+          "stages": 20
+        };
+        localStorage.setItem('stats', JSON.stringify(stats));
+        var stats = JSON.parse(localStorage.getItem('stats'));
+        console.log('stats: ', stats);
+      }
+    </script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <div class="w3-container">
+      <h1 id="lv" style="color:white">1 level</h1>
+      <div class="w3-light-grey">
+        <div id="progress" class="w3-container w3-green" style="height:24px;width:50%"></div>
+      </div>
+      <p id="xp" style="color:white">XP</p>
+      <p id="damage" style="color:white">Damage</p>
+      <p id="health" style="color:white">Health</p>
+      <p id="speed" style="color:white">Speed</p>
     </div>
-  </div>
-
-  <p id="xp" style="color:white">XP</p>
-  <p id="damage" style="color:white">Damage</p>
-  <p id="health" style="color:white">Health</p>
-  <p id="speed" style="color:white">Speed</p>
-</div>
     <div id="progress">
       <div id="progress-bar"></div>
       <ul id="progress-num">
-		<li onclick='go(1)' class='step active'>1</li>
-		<li onclick='go(2)' class='step active'>2</li>
-		<li onclick='go(3)' class='step active'>3</li>
-		<li onclick='go(4)' class='step active'>4</li>
-		<li onclick='go(5)' class='step active'>5</li>
+        <li onclick='go(1)' class='step active'>1</li>
+        <li onclick='go(2)' class='step active'>2</li>
+        <li onclick='go(3)' class='step active'>3</li>
+        <li onclick='go(4)' class='step active'>4</li>
+        <li onclick='go(5)' class='step active'>5</li>
       </ul>
     </div>
-<div id="progress">
+    <div id="progress">
       <div id="progress-bar"></div>
       <ul id="progress-num">
-		<li onclick='go(6)' class='step active'>6</li>
-		<li onclick='go(7)' class='step active'>7</li>
-		<li onclick='go(8)' class='step active'>8</li>
-		<li onclick='go(9)' class='step active'>9</li>
-		<li onclick='go(10)' class='step active'>10</li>
+        <li onclick='go(6)' class='step active'>6</li>
+        <li onclick='go(7)' class='step active'>7</li>
+        <li onclick='go(8)' class='step active'>8</li>
+        <li onclick='go(9)' class='step active'>9</li>
+        <li onclick='go(10)' class='step active'>10</li>
       </ul>
     </div>
-<div id="progress">
+    <div id="progress">
       <div id="progress-bar"></div>
       <ul id="progress-num">
-		<li onclick='go(11)' class='step active'>11</li>
-		<li onclick='go(12)' class='step active'>12</li>
-		<li onclick='go(13)' class='step active'>13</li>
-		<li onclick='go(14)' class='step active'>14</li>
-		<li onclick='go(15)' class='step active'>15</li>
+        <li onclick='go(11)' class='step active'>11</li>
+        <li onclick='go(12)' class='step active'>12</li>
+        <li onclick='go(13)' class='step active'>13</li>
+        <li onclick='go(14)' class='step active'>14</li>
+        <li onclick='go(15)' class='step active'>15</li>
       </ul>
     </div>
-<div id="progress">
+    <div id="progress">
       <div id="progress-bar"></div>
       <ul id="progress-num">
-		<li onclick='go(16)' class='step active'>16</li>
-		<li onclick='go(17)' class='step active'>17</li>
-		<li onclick='go(18)' class='step active'>18</li>
-		<li onclick='go(19)' class='step active'>19</li>
-		<li onclick='go(20)' class='step active'>20</li>
+        <li onclick='go(16)' class='step active'>16</li>
+        <li onclick='go(17)' class='step active'>17</li>
+        <li onclick='go(18)' class='step active'>18</li>
+        <li onclick='go(19)' class='step active'>19</li>
+        <li onclick='go(20)' class='step active'>20</li>
       </ul>
     </div>
-	<button id="progress-prev" class="btn" disabled hidden>Prev</button>
+    <button id="progress-prev" class="btn" disabled hidden>Prev</button>
     <button id="progress-next" class="btn" hidden>Next</button>
-    
-<h1 style="color:white">Difficulty</h1>
-	<div class="slidecontainer">
-	  <input type="range" min="1" max="6" value="3" class="slider" id="myRange">
-	  <p style="color:white"><span id="demo" style="color:white"></span></p>
-	</div>
+    <h1 style="color:white">Difficulty</h1>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="6" value="3" class="slider" id="myRange">
+      <p style="color:white">
+        <span id="demo" style="color:white"></span>
+      </p>
+    </div>
+    <script>
+      var difficulty = ["Very easy", "Easy", "Normal", "Hard", "Very hard", "Impossible"]
+      var slider = document.getElementById("myRange");
+      var output = document.getElementById("demo");
+      output.innerHTML = difficulty[slider.value - 1];
+      slider.oninput = function() {
+        var stats = JSON.parse(localStorage.getItem('stats'));
+        stats.diff = this.value;
+        localStorage.setItem('stats', JSON.stringify(stats));
+        output.innerHTML = difficulty[this.value - 1];
+      }
 
-	<script>
-	var difficulty = ["Very easy","Easy","Normal","Hard","Very hard","Impossible"]
-	var slider = document.getElementById("myRange");
-	var output = document.getElementById("demo");
-	output.innerHTML = difficulty[slider.value-1];
-
-	slider.oninput = function() {
-	var stats = JSON.parse(localStorage.getItem('stats'));
-	stats.diff = this.value;
-	localStorage.setItem('stats', JSON.stringify(stats));
-	  output.innerHTML = difficulty[this.value-1];
-	}
-	function apply(){
-		var stats = JSON.parse(localStorage.getItem('stats'));
-		stats.diff = slider.value;
-		localStorage.setItem('stats', JSON.stringify(stats));
-		location.replace("main.html")
-	}
-	
-
-	</script>
+      function apply() {
+        var stats = JSON.parse(localStorage.getItem('stats'));
+        stats.diff = slider.value;
+        localStorage.setItem('stats', JSON.stringify(stats));
+        location.replace("main.html")
+      }
+    </script>
     <script src="js/script-main.js"></script>
-    <script>prog()</script>
+    <script>
+      prog()
+    </script>
   </body>
 </html>
