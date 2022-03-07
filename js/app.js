@@ -131,7 +131,7 @@ function Log(x, y) {
 }
 
 function get_level(xp){
-  var lv = Math.floor(Log(next_lv_increment,xp/first_level));
+  var lv = Math.floor(Log(2,xp/first_level));
   return lv;
 }
 var lv = get_level(stats.xp);
