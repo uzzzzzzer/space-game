@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="css/style-main.css" />
   </head>
   <body>
+	  <script>
+	  var stats = JSON.parse(localStorage.getItem('stats'));
+	  if(stats==null){
+		  reset_stats();
+	  }
+	  function reset_stats(){
+		var stats = { 'xp': 0, 'passed': 0, 'energy': 0,"selected":1,"stages":20};
+		localStorage.setItem('stats', JSON.stringify(stats));
+		var stats = JSON.parse(localStorage.getItem('stats'));
+		console.log('stats: ', stats);
+		}
+	  </script>
     <div id="progress">
       <div id="progress-bar"></div>
       <ul id="progress-num">
