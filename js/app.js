@@ -634,6 +634,7 @@ function gameOver() {
     document.getElementById('game-over').style.display = 'block';
     document.getElementById('game-over-overlay').style.display = 'block';
     isGameOver = true;
+    localStorage.setItem('stats', JSON.stringify(stats));
 }
 
 function gameWin() {
