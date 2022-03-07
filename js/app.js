@@ -120,7 +120,7 @@ var spawned=0;
 var lastBullet = Date.now();
 var vfx=[];
 var stats = JSON.parse(localStorage.getItem('stats'));
-var compositions=["tt","ff","d","fttf","ddd","tttttttttt","ftftf","ffffffffff","dttd","dfdfd","ttttttttttttttt","g","fdgdf","ttttttfgft","ggggg","tgtgt","gdg","fgfgf","ttdttgg","ffsff"];
+var compositions=["tt","ff","d","fttf","ddd","tttttttttt","ftftf","ffffffffff","dttd","dfdfd","ttttttttttttttt","g","fdgdf","ttttttfgft","ggggg","tgtgt","gdg","fgfgf","ttdttgg","fffffdddddfffff"];
 var sp=compositions[stats.selected-1];
 var to_spawn=sp.length;
 // Update game objects
