@@ -120,9 +120,13 @@ var spawned=0;
 var lastBullet = Date.now();
 var vfx=[];
 var stats = JSON.parse(localStorage.getItem('stats'));
-var time=180/stats.diff;
 var compositions=["tt","ff","d","fttf","ddd","tttttttttt","ftftf","ffffffffff","dttd","dfdfd","ttttttttttttttt","g","fdgdf","ttttttfgft","ggggg","tgtgt","gdg","fgfgf","ttdttgg","fffffdddddfffff"];
 var sp=compositions[stats.selected-1];
+var time = 30;
+for(var i=0;i<sp.length;i++){
+	time+={"t":5,"f":5,"d":10,"g":5}[sp[i]];
+}
+time=time/stats.diff;
 var to_spawn=sp.length;
 var config = {max_speed:[2,2,3,3,3,3,4,4,4,4,5,5],
       damage:[1,1,1,1.2,1.2,1.2,1.3,1.3,1.4,1.5,1.6,2],
